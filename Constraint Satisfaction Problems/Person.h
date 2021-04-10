@@ -45,9 +45,8 @@ public:
 		bool constraint_13 = this->constraint_13();
 		bool constraint_14 = this->constraint_14();
 		bool constraint_15 = this->constraint_15();
-		bool constraint_16 = this->constraint_16();
 
-		return constraint_1 && constraint_2 && constraint_3 && constraint_4 && constraint_5 && constraint_6 && constraint_7 && constraint_8 && constraint_9 && constraint_10 && constraint_11 && constraint_12 && constraint_13 && constraint_14 && constraint_15 && constraint_16 ;
+		return constraint_1 && constraint_2 && constraint_3 && constraint_4 && constraint_5 && constraint_6 && constraint_7 && constraint_8 && constraint_9 && constraint_10 && constraint_11 && constraint_12 && constraint_13 && constraint_14 && constraint_15 ;
 	}
 
 	bool constraint_1() {
@@ -62,27 +61,24 @@ public:
 
 	bool constraint_2() {
 		if (this->is_value_label_set("house_color") && this->is_value_label_set("nationality")) {
-			if (this->get_label_value("nationality") == "Englishman")
-				if (this->get_label_value("house_color") != "red")
-					return false;
+			if (this->get_label_value("nationality") == "Englishman" || this->get_label_value("house_color") == "red")
+				return this->get_label_value("nationality") == "Englishman" && this->get_label_value("house_color") == "red";
 		}
 		return true;
 	}
 
 	bool constraint_3() {
 		if (this->is_value_label_set("house_color") && this->neighbours.find("left") != this->neighbours.end() && this->neighbours["left"]->is_value_label_set("house_color")) {
-			if (this->get_label_value("house_color") == "white")
-				if (this->neighbours["left"]->get_label_value("house_color") != "green")
-					return false;
+			if (this->get_label_value("house_color") == "white" || this->neighbours["left"]->get_label_value("house_color") == "green")
+				return this->get_label_value("house_color") == "white" && this->neighbours["left"]->get_label_value("house_color") == "green";
 		}
 		return true;
 	}
 
 	bool constraint_4() {
 		if (this->is_value_label_set("beverage") && this->is_value_label_set("nationality")) {
-			if (this->get_label_value("nationality") == "Dane") {
-				if (this->get_label_value("beverage") != "tea")
-					return false;
+			if (this->get_label_value("nationality") == "Dane" || this->get_label_value("beverage") == "tea") {
+				return this->get_label_value("nationality") == "Dane" || this->get_label_value("beverage") == "tea";
 			}
 		}
 		return true;
@@ -101,10 +97,10 @@ public:
 					return this->neighbours["left"]->get_label_value("pet") == "cat";
 				}
 			}
-			else if (this->neighbours.find("right") != this->neighbours.end()) {
+			else if (this->neighbours.find("right") != this->neighbours.end() && this->neighbours["right"]->is_value_label_set("pet")) {
 				return this->neighbours["right"]->get_label_value("pet") == "cat";
 			}
-			else {
+			else if (this->neighbours.find("left") != this->neighbours.end() && this->neighbours["left"]->is_value_label_set("pet")){
 				return this->neighbours["left"]->get_label_value("pet") == "cat";
 			}
 
@@ -113,24 +109,24 @@ public:
 
 	bool constraint_6() {
 		if (this->is_value_label_set("house_color") && this->is_value_label_set("tabaco")) {
-			if (this->get_label_value("house_color") == "yellow")
-				return this->get_label_value("tabaco") == "cigar";
+			if (this->get_label_value("house_color") == "yellow" || this->get_label_value("tabaco") == "cigar")
+				return this->get_label_value("house_color") == "yellow" && this->get_label_value("tabaco") == "cigar";
 		}
 		return true;
 	}
 
 	bool constraint_7() {
 		if (this->is_value_label_set("tabaco") && this->is_value_label_set("nationality")) {
-			if (this->get_label_value("nationality") == "German")
-				return this->get_label_value("tabaco") == "pipe";		
+			if (this->get_label_value("nationality") == "German" || this->get_label_value("tabaco") == "pipe")
+				return this->get_label_value("nationality") == "German" && this->get_label_value("tabaco") == "pipe";
 		}
 		return true;
 	}
 
 	bool constraint_8() {
 		if (this->is_value_label_set("beverage")) {
-			if (this->get_name() == "3")
-				return this->get_label_value("beverage") == "milk";
+			if (this->get_name() == "3" || this->get_label_value("beverage") == "milk")
+				return this->get_name() == "3" && this->get_label_value("beverage") == "milk";
 		}
 		return true;
 	}
@@ -148,10 +144,10 @@ public:
 					return this->neighbours["left"]->get_label_value("beverage") == "water";
 				}
 			}
-			else if (this->neighbours.find("right") != this->neighbours.end()) {
+			else if (this->neighbours.find("right") != this->neighbours.end() && this->neighbours["right"]->is_value_label_set("beverage")) {
 				return this->neighbours["right"]->get_label_value("beverage") == "water";
 			}
-			else {
+			else if(this->neighbours.find("left") != this->neighbours.end() && this->neighbours["left"]->is_value_label_set("beverage")) {
 				return this->neighbours["left"]->get_label_value("beverage") == "water";
 			}
 
@@ -167,9 +163,9 @@ public:
 	}
 
 	bool constraint_11() {
-		if (this->is_value_label_set("nationality") && this->get_label_value("nationality") == "Swede")
-			if (this->is_value_label_set("pet"))
-				return this->get_label_value("pet") == "dog";
+		if (this->is_value_label_set("nationality") && this->is_value_label_set("pet"))
+			if (this->get_label_value("nationality") == "Swede" || this->get_label_value("pet") == "dog")
+				return this->get_label_value("nationality") == "Swede" && this->get_label_value("pet") == "dog";
 
 		return true;
 	}
@@ -221,29 +217,20 @@ public:
 	}
 
 	bool constraint_14() {
-		if (this->is_value_label_set("tabaco") && this->get_label_value("tabaco") == "mentol")
-			if (this->is_value_label_set("beverage"))
-				return this->get_label_value("beverage") == "beer";
+		if (this->is_value_label_set("tabaco") && this->is_value_label_set("beverage"))
+			if (this->get_label_value("tabaco") == "mentol" || this->get_label_value("beverage") == "beer")
+				return this->get_label_value("tabaco") == "mentol" && this->get_label_value("beverage") == "beer";
 
 		return true;
 	}
 
 	bool constraint_15() {
-		if (this->is_value_label_set("house_color") && this->get_label_value("house_color") == "green")
-			if (this->is_value_label_set("beverage"))
-				return this->get_label_value("beverage") == "coffe";
+		if (this->is_value_label_set("house_color") && this->is_value_label_set("beverage"))
+			if (this->get_label_value("house_color") == "green" || this->get_label_value("beverage") == "coffe")
+				return this->get_label_value("house_color") == "green" && this->get_label_value("beverage") == "coffe";
 
 		return true;
 	}
 
-	bool constraint_16() {
-		if (this->get_name() == "1") {
-			if (this->neighbours.find("left") != this->neighbours.end())
-				return false;
-			else if (this->neighbours.find("right") != this->neighbours.end() )
-				return this->neighbours["right"]->get_name() == "2";
-		}
-		return true;
-	}
 
 };
