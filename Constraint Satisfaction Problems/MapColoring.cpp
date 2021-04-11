@@ -108,3 +108,13 @@ std::vector<std::shared_ptr<Variable>> MapColoring::get_linked(std::shared_ptr<V
 
 	return v_array;
 }
+
+void MapColoring::reverse_erasing(std::shared_ptr<Variable> variable, std::shared_ptr<Label> value, std::shared_ptr<std::unordered_map<std::shared_ptr<Variable>, std::vector<std::shared_ptr<Label>>>> assignment)
+{
+	for (auto domain : variable->get_domain_labels())
+		if (domain->get_label_name() == value->get_label_name()) {
+			auto iter = std::find(domain->get_domain().begin(), domain->get_domain().end(), value);
+			if (iter == domain->get_domain().end())
+				domain->get_domain().push_back(value);
+		}
+}

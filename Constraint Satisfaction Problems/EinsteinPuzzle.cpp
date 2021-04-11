@@ -147,6 +147,16 @@ std::vector<std::shared_ptr<Variable>> EinsteinPuzzle::get_linked(std::shared_pt
 	return linked_variables;
 }
 
+void EinsteinPuzzle::reverse_erasing(std::shared_ptr<Variable> variable, std::shared_ptr<Label> value, std::shared_ptr<std::unordered_map<std::shared_ptr<Variable>, std::vector<std::shared_ptr<Label>>>> assignment)
+{
+	for (auto domain : variable->get_domain_labels())
+		if (domain->get_label_name() == value->get_label_name()) {
+			auto iter = std::find(domain->get_domain().begin(), domain->get_domain().end(), value);
+			if (iter != domain->get_domain().end())
+				domain->get_domain().push_back(value);
+		}
+}
+
 bool is_linked(std::shared_ptr<Variable> variable, std::shared_ptr<Label> value, std::shared_ptr<std::unordered_map<std::shared_ptr<Variable>, std::vector<std::shared_ptr<Label>>>> assignment) {
 	return true;
 }

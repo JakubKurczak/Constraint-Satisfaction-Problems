@@ -29,6 +29,7 @@ std::shared_ptr<std::unordered_map<std::shared_ptr<Variable>, std::vector<std::s
 
 		}
 		int index = 0;
+		this->propagation_algo->reverse_propagation(variable, label, this->csp_problem, assignment);
 		for (auto l: (*assignment)[variable]) {
 			if (l == label)
 				(*assignment)[variable].erase((*assignment)[variable].begin() + index);

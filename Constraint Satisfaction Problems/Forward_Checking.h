@@ -11,9 +11,15 @@ public:
 
 	}
 
-	void propagate(std::shared_ptr<Variable> variable, std::shared_ptr<Label> value, std::shared_ptr<CSP_Problem> problem, std::shared_ptr<std::unordered_map<std::shared_ptr<Variable>, std::vector<std::shared_ptr<Label>>>> assignment) {
+	void propagate(std::shared_ptr<Variable> variable, std::shared_ptr<Label> value, std::shared_ptr<CSP_Problem> problem, std::shared_ptr<std::unordered_map<std::shared_ptr<Variable>, std::vector<std::shared_ptr<Label>>>> assignment) override{
 		std::vector<std::shared_ptr<Variable>> linked_variables = problem->get_linked(variable, value, assignment);
 		for (auto v : linked_variables)
 			problem->erase_inconsistent(v,value,assignment);
+	}
+
+	void reverse_propagation(std::shared_ptr<Variable> variable, std::shared_ptr<Label> value, std::shared_ptr<CSP_Problem> problem, std::shared_ptr<std::unordered_map<std::shared_ptr<Variable>, std::vector<std::shared_ptr<Label>>>> assignment) override {
+		std::vector<std::shared_ptr<Variable>> linked_variables = problem->get_linked(variable, value, assignment);
+		for (auto v : linked_variables)
+			problem->reverse_erasing(v, value, assignment);
 	}
 };

@@ -54,7 +54,8 @@ void test_2() {
 }
 
 int main(){
-	test_1();
+	for(int ii=0;ii<1;ii++)
+		test_1();
 	//test_2();
 	return 0;
 }
