@@ -142,9 +142,11 @@
     <ClInclude Include="BacktrackingAlgo.h" />
     <ClInclude Include="CSP_Problem.h" />
     <ClInclude Include="EinsteinPuzzle.h" />
+    <ClInclude Include="Forward_Checking.h" />
     <ClInclude Include="Least_Constraining_Value.h" />
     <ClInclude Include="Minimum_Remaining_Values.h" />
     <ClInclude Include="Person.h" />
+    <ClInclude Include="Propagation_Algo.h" />
     <ClInclude Include="Test.h" />
     <ClInclude Include="Variable.h" />
     <ClInclude Include="Label.h" />
@@ -158,10 +160,12 @@
   <ItemGroup>
     <ClCompile Include="BacktrackingAlgo.cpp" />
     <ClCompile Include="EinsteinPuzzle.cpp" />
+    <ClCompile Include="Forward_Checking.cpp" />
     <ClCompile Include="MapColoring.cpp" />
     <ClCompile Include="Naive_Order_Domain_Values.cpp" />
     <ClCompile Include="Naive_Select_Unassigned_Variable.cpp" />
     <ClCompile Include="Person.cpp" />
+    <ClCompile Include="Region.cpp" />
     <ClCompile Include="Test.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

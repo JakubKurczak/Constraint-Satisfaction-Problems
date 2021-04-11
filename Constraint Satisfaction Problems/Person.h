@@ -28,6 +28,19 @@ public:
 		neighbours["right"]= other_person;
 	}
 
+	//ZMIEN JESZCZE NIE WIEM NA COO
+	int get_constraint_value(std::shared_ptr<Label> label) override {
+		return this->neighbours.size();
+	}
+
+	int get_available_values() override {
+		int values = 0;
+		for (auto d : this->get_domain_labels())
+			values += d->get_domain().size();
+		return values;
+	}
+
+
 	//its much more are constraint  not voided
 	bool are_constraint_not_voided() {
 		bool constraint_1 = this->constraint_1();

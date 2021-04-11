@@ -83,18 +83,9 @@ public:
 	}
 
 
-	//DO POPRAWY
-	int get_available_values() {
-		int available_values = 0;
-		for (auto l : this->domain_labels) {
-			available_values += l->get_domain().size();
-		}
-	}
+	virtual int get_available_values() = 0;
 
-	//DO POPRAWY
-	int get_constraint_value(std::shared_ptr<Label> label) {
-		return 0;
-	}
+	virtual int get_constraint_value(std::shared_ptr<Label> label) = 0;
 
 
 	virtual ~Variable()

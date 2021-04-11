@@ -120,3 +120,33 @@ std::vector<std::shared_ptr<Variable>> EinsteinPuzzle::get_variables()
 
 	return v;
 }
+
+
+//TO NIE SKONCZONE
+//BAARDZO PODSTAWOWE
+void EinsteinPuzzle::erase_inconsistent(std::shared_ptr<Variable> variable, std::shared_ptr<Label> value, std::shared_ptr<std::unordered_map<std::shared_ptr<Variable>, std::vector<std::shared_ptr<Label>>>> assignment)
+{
+	for (auto domain : variable->get_domain_labels())
+		if (domain->get_label_name() == value->get_label_name()) {
+			auto iter = std::find(domain->get_domain().begin(), domain->get_domain().end(), value);
+			if (iter != domain->get_domain().end())
+				domain->get_domain().erase(iter);
+		}
+			
+}
+
+
+std::vector<std::shared_ptr<Variable>> EinsteinPuzzle::get_linked(std::shared_ptr<Variable> variable, std::shared_ptr<Label> value, std::shared_ptr<std::unordered_map<std::shared_ptr<Variable>, std::vector<std::shared_ptr<Label>>>> assignment)
+{
+	std::vector<std::shared_ptr<Variable>> linked_variables;
+	auto p = std::dynamic_pointer_cast<Variable>(variable);
+	for (auto person : this->people)
+		if(p != person)
+			linked_variables.push_back(person);
+
+	return linked_variables;
+}
+
+bool is_linked(std::shared_ptr<Variable> variable, std::shared_ptr<Label> value, std::shared_ptr<std::unordered_map<std::shared_ptr<Variable>, std::vector<std::shared_ptr<Label>>>> assignment) {
+	return true;
+}

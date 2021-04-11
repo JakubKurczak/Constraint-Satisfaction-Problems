@@ -60,6 +60,12 @@
     <ClInclude Include="Least_Constraining_Value.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Propagation_Algo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Forward_Checking.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Test.cpp">
@@ -81,6 +87,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="EinsteinPuzzle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Forward_Checking.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Region.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

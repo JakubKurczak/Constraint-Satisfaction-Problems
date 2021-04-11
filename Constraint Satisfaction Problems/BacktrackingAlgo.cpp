@@ -9,6 +9,7 @@ std::shared_ptr<std::unordered_map<std::shared_ptr<Variable>, std::vector<std::s
 		for (auto label : iter->second) {
 			std::cout << label->get_label_name() << ": ";
 			std::cout << label->get_value() << std::endl;
+			
 		}
 	}
 
@@ -21,6 +22,7 @@ std::shared_ptr<std::unordered_map<std::shared_ptr<Variable>, std::vector<std::s
 		}
 		(*assignment)[variable].push_back(label);
 		if (csp_problem->are_constraint_satisfied(assignment)) {
+			this->propagation_algo->propagate(variable, label, this->csp_problem, assignment);
 			auto result = rec_backtracking(assignment);
 			if (result != nullptr)
 				return result;

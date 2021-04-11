@@ -57,4 +57,17 @@ public:
 	std::vector < std::shared_ptr<Region>> get_neighbours() {
 		return neighbours;
 	}
+
+	int get_constraint_value(std::shared_ptr<Label> label) override {
+		int constraints = 0;
+		for (auto n : this->neighbours)
+			if (std::find(n->get_domain_labels()[0]->get_domain().begin(), n->get_domain_labels()[0]->get_domain().end(), label) != n->get_domain_labels()[0]->get_domain().end())
+				constraints += 1;
+		return constraints;
+	}
+	
+	int get_available_values() override {
+		return this->get_domain_labels()[0]->get_domain().size();
+	}
+
 };
