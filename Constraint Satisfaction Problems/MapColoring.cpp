@@ -118,3 +118,23 @@ void MapColoring::reverse_erasing(std::shared_ptr<Variable> variable, std::share
 				domain->get_domain().push_back(value);
 		}
 }
+
+
+std::queue<std::pair<std::shared_ptr<Variable>, std::shared_ptr<Variable>>> MapColoring::get_queue(std::shared_ptr<Variable> variable, std::shared_ptr<Label> value)
+{
+	std::queue<std::pair<std::shared_ptr<Variable>, std::shared_ptr<Variable>>> queue;
+
+	for (auto v : variable->get_neighbours())
+		queue.push(std::make_pair(variable, v));
+
+	return queue;
+}
+
+bool MapColoring::check_consistency(std::shared_ptr<Label> value_1, std::shared_ptr<Variable> variable_1, std::shared_ptr<Variable> variable_2)
+{
+	for (auto l : variable_2->get_domain_labels()[0]->get_domain()) {
+		if (l->get_value() != value_1->get_value())
+			return true;
+	}
+	return false;
+}

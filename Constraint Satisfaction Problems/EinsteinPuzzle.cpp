@@ -126,13 +126,15 @@ std::vector<std::shared_ptr<Variable>> EinsteinPuzzle::get_variables()
 //BAARDZO PODSTAWOWE
 void EinsteinPuzzle::erase_inconsistent(std::shared_ptr<Variable> variable, std::shared_ptr<Label> value, std::shared_ptr<std::unordered_map<std::shared_ptr<Variable>, std::vector<std::shared_ptr<Label>>>> assignment)
 {
+	//this is true
+	//but its not enough
 	for (auto domain : variable->get_domain_labels())
 		if (domain->get_label_name() == value->get_label_name()) {
 			auto iter = std::find(domain->get_domain().begin(), domain->get_domain().end(), value);
 			if (iter != domain->get_domain().end())
 				domain->get_domain().erase(iter);
 		}
-			
+	
 }
 
 
@@ -152,11 +154,19 @@ void EinsteinPuzzle::reverse_erasing(std::shared_ptr<Variable> variable, std::sh
 	for (auto domain : variable->get_domain_labels())
 		if (domain->get_label_name() == value->get_label_name()) {
 			auto iter = std::find(domain->get_domain().begin(), domain->get_domain().end(), value);
-			if (iter != domain->get_domain().end())
+			if (iter == domain->get_domain().end())
 				domain->get_domain().push_back(value);
 		}
 }
 
-bool is_linked(std::shared_ptr<Variable> variable, std::shared_ptr<Label> value, std::shared_ptr<std::unordered_map<std::shared_ptr<Variable>, std::vector<std::shared_ptr<Label>>>> assignment) {
+
+//UNIMPLEMENTED FOR A REASON
+std::queue<std::pair<std::shared_ptr<Variable>, std::shared_ptr<Variable>>> EinsteinPuzzle::get_queue(std::shared_ptr<Variable> variable, std::shared_ptr<Label> value)
+{
+	return std::queue<std::pair<std::shared_ptr<Variable>, std::shared_ptr<Variable>>>();
+}
+
+bool EinsteinPuzzle::check_consistency(std::shared_ptr<Label> value_1, std::shared_ptr<Variable> variable_1, std::shared_ptr<Variable> variable_2)
+{
 	return true;
 }

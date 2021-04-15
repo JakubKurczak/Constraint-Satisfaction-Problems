@@ -54,8 +54,11 @@ public:
 		return false;
 	}
 
-	std::vector < std::shared_ptr<Region>> get_neighbours() {
-		return neighbours;
+	std::vector < std::shared_ptr<Variable>> get_neighbours() override {
+		std::vector < std::shared_ptr<Variable>> v;
+		for (auto iter = neighbours.begin(); iter != neighbours.end(); iter++)
+			v.push_back(*iter);
+		return v;
 	}
 
 	int get_constraint_value(std::shared_ptr<Label> label) override {

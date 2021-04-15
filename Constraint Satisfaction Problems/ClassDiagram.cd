@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="BacktrackingAlgo">
+    <Position X="10.75" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>QAAAQAAgAIACAAAAAQAAAAAAAAgAAAEAAAAAAgAAAAE=</HashCode>
+      <FileName>BacktrackingAlgo.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CSP_Problem" Collapsed="true">
+    <Position X="2.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAQAAIAAAAAAAQAAQAABgAAAQAAAAAABA=</HashCode>
+      <FileName>CSP_Problem.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EinsteinPuzzle" Collapsed="true">
+    <Position X="3.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAgAAAAAQgAIAAAAAAAAAAQAABgAAAQAAIAAARA=</HashCode>
+      <FileName>EinsteinPuzzle.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Forward_Checking" Collapsed="true">
+    <Position X="8.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAABAAAA=</HashCode>
+      <FileName>Forward_Checking.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Least_Constraining_Value">
+    <Position X="3.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAgA=</HashCode>
+      <FileName>Least_Constraining_Value.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Minimum_Remaining_Values" Collapsed="true">
+    <Position X="1" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Minimum_Remaining_Values.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Person" Collapsed="true">
+    <Position X="6" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AMAAAAGAAD8AAACAAQgAAAAACAAAAAAAIAAAAAAAAAE=</HashCode>
+      <FileName>Person.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Propagation_Algo" Collapsed="true">
+    <Position X="7.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAABAAAA=</HashCode>
+      <FileName>Propagation_Algo.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Variable" Collapsed="true">
+    <Position X="7.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gEAAAACCAACAAQCAAADAAQAACAABAABAAAwAAIQAAAA=</HashCode>
+      <FileName>Variable.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Label">
+    <Position X="13.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAkAAAAAAAABACAQAAgAAAACAAAQAAAAAAAAA=</HashCode>
+      <FileName>Label.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MapColoring" Collapsed="true">
+    <Position X="1" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgABAAAQAAIAABAAAAAAAQAABgACQQAAAQAABE=</HashCode>
+      <FileName>MapColoring.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Naive_Order_Domain_Values">
+    <Position X="1" Y="4.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Naive_Order_Domain_Values.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Naive_Select_Unassigned_Variable" Collapsed="true">
+    <Position X="3.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Naive_Select_Unassigned_Variable.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Order_Domain_Values">
+    <Position X="2.25" Y="3" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Order_Domain_Values.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Region" Collapsed="true">
+    <Position X="8.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAACACAgAAAgACBAAAAAAAACAAAAAgEAAAAAAAAAAA=</HashCode>
+      <FileName>Region.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Select_Unassigned_Variable">
+    <Position X="2" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAAAAAIAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Select_Unassigned_Variable.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AC3" Collapsed="true">
+    <Position X="6" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACAAAAAAAAAAAAABEAAAAAABAAAA=</HashCode>
+      <FileName>AC3.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

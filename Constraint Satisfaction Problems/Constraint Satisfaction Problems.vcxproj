@@ -88,11 +88,15 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <BrowseInformation>true</BrowseInformation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <Bscmake>
+      <PreserveSbr>true</PreserveSbr>
+    </Bscmake>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -139,6 +143,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="AC3.h" />
     <ClInclude Include="BacktrackingAlgo.h" />
     <ClInclude Include="CSP_Problem.h" />
     <ClInclude Include="EinsteinPuzzle.h" />
@@ -158,6 +163,7 @@
     <ClInclude Include="Select_Unassigned_Variable.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AC3.cpp" />
     <ClCompile Include="BacktrackingAlgo.cpp" />
     <ClCompile Include="EinsteinPuzzle.cpp" />
     <ClCompile Include="Forward_Checking.cpp" />
@@ -167,6 +173,9 @@
     <ClCompile Include="Person.cpp" />
     <ClCompile Include="Region.cpp" />
     <ClCompile Include="Test.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

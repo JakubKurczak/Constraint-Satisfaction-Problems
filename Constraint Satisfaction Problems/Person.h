@@ -20,6 +20,13 @@ public:
 
 	}
 
+	std::vector < std::shared_ptr<Variable>> get_neighbours() override {
+		std::vector < std::shared_ptr<Variable>> v;
+		for (auto iter = neighbours.begin(); iter != neighbours.end(); iter++)
+			v.push_back(iter->second);
+		return v;
+	}
+
 	void add_left_neighbour(std::shared_ptr<Person> other_person) {
 		neighbours["left"] = other_person;
 	}
@@ -30,7 +37,7 @@ public:
 
 	//ZMIEN JESZCZE NIE WIEM NA COO
 	int get_constraint_value(std::shared_ptr<Label> label) override {
-		return this->neighbours.size();
+		return 1;
 	}
 
 	int get_available_values() override {

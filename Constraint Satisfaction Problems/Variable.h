@@ -28,6 +28,14 @@ public:
 		return this->variable_name.compare(other.variable_name) != 0;
 	}
 
+	void add_to_domain(std::shared_ptr<Label> label) {
+		for (int ii = 0; ii < domain_labels.size(); ii++)
+			if (domain_labels[ii]->get_label_name().compare(label->get_label_name()) == 0)
+				if (std::find(domain_labels[ii]->get_domain().begin(), domain_labels[ii]->get_domain().end(), label) == domain_labels[ii]->get_domain().end())
+					domain_labels[ii]->get_domain().push_back(label);
+
+	}
+
 	void exclude_from_domain(Label& label) {
 		for (int ii = 0; ii < domain_labels.size(); ii++)
 			if (domain_labels[ii]->get_label_name().compare(label.get_label_name()) == 0)
@@ -87,6 +95,7 @@ public:
 
 	virtual int get_constraint_value(std::shared_ptr<Label> label) = 0;
 
+	virtual std::vector<std::shared_ptr<Variable>> get_neighbours() = 0;
 
 	virtual ~Variable()
 	{

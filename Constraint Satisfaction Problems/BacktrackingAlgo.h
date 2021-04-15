@@ -11,12 +11,16 @@
 #include "Propagation_Algo.h"
 class BacktrackingAlgo {
 private:
+	int counter = 0;
+	int solution_counter = 0;
 	std::shared_ptr<CSP_Problem> csp_problem;
 	std::shared_ptr<Select_Unassigned_Variable> select_unassigned_variable;
 	std::shared_ptr<Order_Domain_Values> order_domain_value;
 	std::shared_ptr<Propagation_Algo> propagation_algo;
-
+	
 	std::shared_ptr<std::unordered_map<std::shared_ptr<Variable>, std::vector<std::shared_ptr<Label>>>> rec_backtracking(std::shared_ptr<std::unordered_map<std::shared_ptr<Variable>, std::vector<std::shared_ptr<Label>>>> assignment);
+
+	std::shared_ptr<std::unordered_map<std::shared_ptr<Variable>, std::vector<std::shared_ptr<Label>>>> rec_backtracking_performance_tracking(std::shared_ptr<std::unordered_map<std::shared_ptr<Variable>, std::vector<std::shared_ptr<Label>>>> assignment);
 
 public:
 
@@ -36,9 +40,16 @@ public:
 
 	}
 
-		std::shared_ptr<std::unordered_map<std::shared_ptr<Variable>, std::vector<std::shared_ptr<Label>>>> recursive_backtracking() {
+	int get_counter() { return counter; }
+
+	std::shared_ptr<std::unordered_map<std::shared_ptr<Variable>, std::vector<std::shared_ptr<Label>>>> recursive_backtracking() {
 			std::shared_ptr<std::unordered_map<std::shared_ptr<Variable>, std::vector<std::shared_ptr<Label>>>> assigment = std::make_shared<std::unordered_map<std::shared_ptr<Variable>, std::vector<std::shared_ptr<Label>>>>();
 			auto rec = rec_backtracking(assigment);
 		return rec;
+	}
+
+	void backtracking_performance_tracking() {
+		std::shared_ptr<std::unordered_map<std::shared_ptr<Variable>, std::vector<std::shared_ptr<Label>>>> assigment = std::make_shared<std::unordered_map<std::shared_ptr<Variable>, std::vector<std::shared_ptr<Label>>>>();
+		rec_backtracking_performance_tracking(assigment);
 	}
 };
